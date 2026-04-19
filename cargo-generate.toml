@@ -1,0 +1,19 @@
+# cargo-generate 元数据：在本仓库根目录执行
+#   cargo generate --path nt-minimal-template <新项目名>
+# 或发布为独立 git 后：
+#   cargo generate <git-url> <新项目名>
+
+[template]
+cargo_generate_version = ">=0.18.0"
+
+# 不打包进生成项目（由用户本地重新构建/解析）
+ignore = [
+  "target",
+  "Cargo.lock",
+  ".git",
+]
+
+[placeholders.wdk_repo_path]
+type = "string"
+prompt = "Relative path from driver/ to the windows-drivers-rs repo root (must contain crates/wdk-build, crates/wdk, …)"
+default = "../../windows-drivers-rs"
